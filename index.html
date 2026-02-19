@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <title>Congresso Internacional 2026</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+
+        body {
+            height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            background: linear-gradient(135deg, #1e3c72, #2a5298);
+            color: white;
+            text-align: center;
+        }
+
+        .container {
+            background: rgba(255, 255, 255, 0.08);
+            margin: 60px;
+            padding: 60px 40px;
+            border-radius: 20px;
+            backdrop-filter: blur(10px);
+            box-shadow: 0 15px 40px rgba(0, 0, 0, 0.3);
+            max-width: 600px;
+            width: 90%;
+        }
+
+        h1 {
+            font-size: 3rem;
+            letter-spacing: 3px;
+            margin-bottom: 30px;
+        }
+
+        .dias {
+            font-size: 2rem;
+            font-weight: 300;
+        }
+
+        .numero {
+            font-size: 4rem;
+            font-weight: bold;
+            color: #ffd700;
+            margin: 10px 0;
+        }
+
+        @media (max-width: 600px) {
+            h1 {
+                font-size: 2rem;
+            }
+
+            .numero {
+                font-size: 3rem;
+            }
+
+            .dias {
+                font-size: 1.5rem;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        <h1>CONGRESSO INTERNACIONAL</h1>
+        <h2>das Testemunhas de Jeová</h2>
+        <h1> </h1>
+        <div class="dias">Faltam</div>
+        <div class="numero" id="contador">0</div>
+        <div class="dias">dias</div>
+    </div>
+
+    <script>
+        function calcularDias() {
+            const hoje = new Date();
+            const evento = new Date(2026, 5, 26); // mês começa em 0 (5 = junho)
+
+            // Zerar horas para evitar diferença parcial de dias
+            hoje.setHours(0,0,0,0);
+            evento.setHours(0,0,0,0);
+
+            const diferenca = evento - hoje;
+            const diasRestantes = Math.ceil(diferenca / (1000 * 60 * 60 * 24));
+
+            const contador = document.getElementById("contador");
+
+            if (diasRestantes >= 0) {
+                contador.textContent = diasRestantes;
+            } else {
+                contador.textContent = "0";
+            }
+        }
+
+        calcularDias();
+    </script>
+
+</body>
+</html>

@@ -30,14 +30,43 @@
             border-radius: 20px;
             backdrop-filter: blur(10px);
             box-shadow: 0 15px 40px rgba(0, 0, 0, 0.3);
-            max-width: 600px;
-            width: 90%;
+            max-width: 400px;
+            width: 70%;
+        }
+
+        .imagem-evento {
+            width: 80%;
+            max-width: 400px;
+            margin-bottom: 25px;
+            border-radius: 12px;
+            /* box-shadow: 0 10px 25px rgba(0,0,0,0.3); */
+        }
+
+        .texto-biblico {
+            font-size: 15px;
+            font-weight: 100;
+            font-style: italic;
+            color: #ffda55;
+            flex-wrap: wrap;
+        }
+
+        .contador-linha {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 12px; /* espaço entre os elementos */
+            flex-wrap: wrap; /* quebra linha em telas muito pequenas */
         }
 
         h1 {
             font-size: 3rem;
             letter-spacing: 3px;
+            margin-bottom: 10px;
+        }
+
+        h2 {
             margin-bottom: 30px;
+            font-weight: 400;
         }
 
         .dias {
@@ -67,23 +96,32 @@
         }
     </style>
 </head>
+
 <body>
 
     <div class="container">
+
+        <!-- IMAGEM JPG -->
+        <img src="imagem.svg" alt="Congresso Internacional" class="imagem-evento">
+
         <h1>CONGRESSO INTERNACIONAL</h1>
         <h2>das Testemunhas de Jeová</h2>
-        <h1> </h1>
-        <div class="dias">Faltam</div>
-        <div class="numero" id="contador">0</div>
-        <div class="dias">dias</div>
+
+        <div class="contador-linha">
+            <div class="dias">Faltam</div>
+            <div class="numero" id="contador">0</div>
+            <div class="dias">dias</div>
+        </div>
+        <div class="texto-biblico">
+            "Exulte e alegre-se, pois Jeová fará coisas grandiosas." - Joel 2:21
+        </div>
     </div>
 
     <script>
         function calcularDias() {
             const hoje = new Date();
-            const evento = new Date(2026, 5, 26); // mês começa em 0 (5 = junho)
+            const evento = new Date(2026, 5, 26);
 
-            // Zerar horas para evitar diferença parcial de dias
             hoje.setHours(0,0,0,0);
             evento.setHours(0,0,0,0);
 
@@ -91,12 +129,7 @@
             const diasRestantes = Math.ceil(diferenca / (1000 * 60 * 60 * 24));
 
             const contador = document.getElementById("contador");
-
-            if (diasRestantes >= 0) {
-                contador.textContent = diasRestantes;
-            } else {
-                contador.textContent = "0";
-            }
+            contador.textContent = diasRestantes >= 0 ? diasRestantes : 0;
         }
 
         calcularDias();

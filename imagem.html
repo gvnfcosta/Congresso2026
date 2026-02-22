@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Imagem</title>
+
+<style>
+    * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+    }
+
+    body {
+        background: black;
+        height: 100vh;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        position: relative;
+    }
+
+    img {
+        max-width: 100%;
+        max-height: 100%;
+    }
+
+    .voltar {
+        position: absolute;
+        top: 20px;
+        left: 20px;
+        color: white;
+        font-size: 28px;
+        text-decoration: none;
+        background: rgba(0,0,0,0.5);
+        padding: 8px 14px;
+        border-radius: 10px;
+    }
+</style>
+</head>
+
+<body>
+
+<a href="javascript:history.back()" class="voltar">←</a>
+
+<img src="imagem.svg" alt="Congresso Internacional">
+
+</body>
+</html>
